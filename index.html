@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD Ma'am</title>	    
+    <link type="text/css" rel="stylesheet" href="./file/default.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Ribbon banner style.css">
+    <link rel="stylesheet" href="container1style.css">
+    <link rel="stylesheet" href="container2style.css">
+    <link rel="stylesheet" href="container3style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script type="text/javascript" src="./file/jquery.min.js"></script>
+    <script type="text/javascript" src="./file/jscex.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-parser.js"></script>
+    <script type="text/javascript" src="./file/jscex-jit.js"></script>
+    <script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
+    <style>
+      /* Popup styling */
+      .mcq-popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50%;
+          height: 40%;
+          max-width: 1000px;
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.2);
+          z-index: 1000;
+      }
+      
+      .mcq-question {
+          font-size: 18px;
+          margin-bottom: 20px;
+          font-weight: bold;
+          margin-top: 5%;
+      }
+      
+      .mcq-option {
+          display: block;
+          margin: 10px 0;
+          padding: 10px;
+          background: #f5f5f5;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+          width: 80%;
+          margin-left: 10%;
+      }
+      
+      .mcq-option:hover {
+          background: #e0e0e0;
+      }
+      
+      .mcq-feedback {
+          margin-top: 15px;
+          font-weight: bold;
+          min-height: 20px;
+      }
+      
+      .correct {
+          color: green;
+      }
+      
+      .wrong {
+          color: red;
+      }
+      
+      #cont2 {
+          cursor: pointer;
+          padding: 15px;
+          border-radius: 5px;
+          margin: 20px 30px 20px 0;
+
+      }
+      
+      .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.5);
+          z-index: 999;
+      }
+  </style>
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+  <header>
+    <div id="Hero-header" style="margin-top: 90px;">
+    <h1 style="font-size: 70px; color: aliceblue;"><b>Happy Birthday Manvi Madam</b></h1>
+    <h2 style="color: rgb(161, 228, 233); text-transform: uppercase;">Celebrating the amazing person you are!</h2>
+  </div>
+  </header>
+  <!-------- Banner ribbon
+  <div id="ribbon">
+  <h1>UL banner cards</h1>
+<ul>
+    <li style="--accent-color:#0B374D">
+        <div class="icon"><i class="fa-brands fa-codepen"></i></div>
+        <div class="title">Codepen</div>
+        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, impedit?</div>
+    </li>
+    <li style="--accent-color:#1286A8">
+        <div class="icon"><i class="fa-brands fa-html5"></i></div>
+        <div class="title">HTML 5</div>
+        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    </li>
+    <li style="--accent-color:#D2B53B">
+        <div class="icon"><i class="fa-brands fa-css3"></i></div>
+        <div class="title">CSS 3</div>
+        <div class="descr">Lorem ipsum dolor sit.</div>
+    </li>
+    <li style="--accent-color:#DA611E">
+        <div class="icon"><i class="fa-brands fa-js"></i></div>
+        <div class="title">Javascript</div>
+        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laboriosam odio alias.</div>
+    </li>
+    <li style="--accent-color:#AC2A1A">
+        <div class="icon"><i class="fa-brands fa-github"></i></div>
+        <div class="title">Github</div>
+        <div class="descr">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    </li>
+</ul>
+</div>
+--------------------------------------------------------Start pop up for message  -->
+<div id="ribbon">
+  <h1 style="margin-bottom: 15px; margin-top: 40px;">If our journey was a lyrics...</h1>
+  <ul>
+    <li style="--accent-color:#0B374D">
+        <div class="icon">
+          <button class="audio-btn" data-audio="audio1">
+            <i class="fas fa-play"></i>
+          </button>
+          <audio id="audio1" src="Meherbani.mp3"></audio>
+        </div>
+        <div class="title">Meherbani</div>
+        <div class="descr">Hai shaam tu, taareef main Tu chain hai, taqleef main </br> </br> Hai teri meherbani Ke bin jaane hi yun sanwar gaye</div>
+    </li>
+    <li style="--accent-color:#1286A8">
+        <div class="icon">
+          <button class="audio-btn" data-audio="audio2">
+            <i class="fas fa-play"></i>
+          </button>
+          <audio id="audio2" src="Sunn Mahi.mp3"></audio>
+        </div>
+        <div class="title">Sunn Mahi</div>
+        <div class="descr">Straight out the sky, you came outta the blue </br></br>
+          I swear to God, I ain′t seen nothin' like you</br></br>
+          The definition of too good to be true </br></br> If you told me you're an angel out of heaven, baby, I'd believe it</div>
+    </li>
+    <li style="--accent-color:#D2B53B">
+        <div class="icon">
+          <button class="audio-btn" data-audio="audio3">
+            <i class="fas fa-play"></i>
+          </button>
+          <audio id="audio3" src="Main agar kahoon.mp3"></audio>
+        </div>
+        <div class="title">Main Agar Kahoon</div>
+        <div class="descr">Main Agar Kahoon Humsafar Meri </br>
+          Apsara Ho Tum Ya Koi Pari</br>
+          Tareef Yeh Bhi To Sach Hai Kuch Bhi Nahi</div>
+    </li>
+    <li style="--accent-color:#DA611E">
+        <div class="icon">
+          <button class="audio-btn" data-audio="audio4">
+            <i class="fas fa-play"></i>
+          </button>
+          <audio id="audio4" src="Who says.mp3"></audio>
+        </div>
+        <div class="title">Who Says</div>
+        <div class="descr">But when it comes to me <br>
+          I wouldn't want to be anybody else</br></br>
+          Who says, who says you're not perfect?<br>
+          Who says you're not worth it?<br><br>
+          Trust me, that's the price of beauty</div>
+    </li>
+    <li style="--accent-color:#AC2A1A">
+        <div class="icon">
+          <button class="audio-btn" data-audio="audio5">
+            <i class="fas fa-play"></i>
+          </button>
+          <audio id="audio5" src="Jadugari.mp3"></audio>
+        </div>
+        <div class="title">Jadugari</div>
+        <div class="descr">Kismat Pe Aaye Na
+          Jo Aaye Na Yakeen <br>
+          Milna Tera Lage
+          Koi Jaadugari</div>
+    </li>
+  </ul>
+</div>
+<!-- Button to trigger the pop-up -->
+
+
+<!-- <button id="openModalBtn">Messages for You</button>-->
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="closeModalBtn" class="close">&times;</span>
+    <h2 style="padding-bottom:15px ;">Messages for You</h2>
+    <div id="messageContent">
+     <div class="popup_body">
+      <div class="paper heart">
+
+      </div>
+
+      <div class="paper image">
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 116, 151); padding: 10px 40px;">How hard I may try, I can never be able to </h2>
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 116, 151); padding: 10px 40px;">thank the universe for your introduction.</h2>
+      </div>
+      
+      <div class="paper">
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(99, 9, 79); padding: 10px 40px;">There will be no 'complete' without YOU ! </h2>
+      </div>
+      
+      <div class="paper image">
+      <h2 style="font-size: 20px; text-transform: none; color: rgb(81, 27, 124); padding: 10px 40px;">Whatever may happen in the future, </h2>
+      <h2 style="font-size: 20px; text-transform: none; color: rgb(81, 27, 124); padding: 10px 40px;">'WHATEVER' </h2>
+      <h2 style="font-size: 20px; text-transform: none; color: rgb(81, 27, 124); padding: 10px 40px;">I will stand by your side always. </h2>
+      <h2 style="font-size: 20px; text-transform: none; color: rgb(81, 27, 124); padding: 10px 40px;">'ALWAYS' </h2>
+      </div>
+      
+      <div class="paper image">
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(85, 119, 5); padding: 10px 40px;">I always wonder, </h2>
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(85, 119, 5); padding: 10px 40px;">How someone like you, can't be a dream.</h2>
+      </div>
+      
+      <div class="paper image">
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 107, 101); padding: 10px 40px;">You clibmed so high that anything in </h2>
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 107, 101); padding: 10px 40px;">the world, is distant second to you. </h2>
+      </div>
+
+      <div class="paper image">
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 116, 151); padding: 10px 40px;">Listen, don't set the standard </h2>
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 116, 151); padding: 10px 40px;">so high that I'll never be </h2>
+        <h2 style="font-size: 20px; text-transform: none; color: rgb(40, 116, 151); padding: 10px 40px;">able to find a replacement </h2>
+      </div>
+
+      <div class="paper">
+      <p class="p1">From my pen... Drag the papers to move!</p>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
+<!--------------------------------------------------------- END pop up for message -->
+
+<!-- The pop-up modal --> 
+
+<div id="three-container" style="padding-top: 80px;">
+ 
+
+  <div id="container-one">
+    <div class="banner">
+      <div class="line">
+        <span>You got mails</span>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div id="openModalBtn" class="content">
+    <img src="https://24.media.tumblr.com/tumblr_mb9wcgsFkU1rb86ldo1_400.jpg" width="500" height="500" alt="Italy / Urban / Street / City">
+            <div class="text1">Open</div>
+            <div class="text2">Inbox Now</div>
+        </div>
+      
+    </div>
+  </div>
+
+  <a href="index Demo.html" style="text-decoration: none;">
+    <div id="container-three">
+      <div class="card">HEY !! <br> <br>HERE IS <BR> SOMETHING</div>
+    </div>
+   </a>
+
+  <div id="container-two">
+    <aside class="responsive-banner first">
+      <div class="container-envelope">
+        <svg class="cirle-a" height="160" width="160">
+          <circle cx="80" cy="80" r="80"/>
+        </svg>
+         <svg class="cirle-b" height="60" width="60">
+          <circle cx="30" cy="30" r="30"/>
+        </svg>
+        <svg class="cirle-c" height="600" width="600">
+          <circle cx="300" cy="300" r="300"/>
+        </svg>
+       <svg class="cirle-d" height="60" width="60">
+          <circle cx="30" cy="30" r="30"/>
+        </svg>
+        <img src="https://i.pinimg.com/originals/f2/d1/f9/f2d1f900f688ddca0765ec8e2d3900e1.png" />
+        <div class="col-xs-12" id="cont2">
+          <p>Quick Surprise</p>
+          <a class="more-link">Take Quiz</a>
+          <h3 id="quiz_id" style="font-size: 14px;">Answer few simple questions and unlock a secret message </h3>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+  <div class="overlay" id="mcqOverlay"></div>
+    <div class="mcq-popup" id="mcqPopup">
+        <div class="mcq-question" id="mcqQuestion"></div>
+        <div id="mcqOptions"></div>
+        <div class="mcq-feedback" id="mcqFeedback"></div>
+    </div>
+  
+
+  <footer>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // MCQ data
+    const mcqData = [
+            {     
+                question: "If you have to choose the best person in the world, whom do you choose?",
+                options: ["Mommy", "Myself", "You (Amrityam)"],
+                correct: 1
+            },
+            {
+                question: "How do you rate yourself?",
+                options: ["Out of the world", "10 / 10", "Prefer not to say"],
+                correct: 0
+            },         
+            {
+                question: "If the world was ending, you wanna be next to whom?",
+                options: ["I will not tell you", "Waiting for someone to fill this shoe", "Author of this question"],
+                correct: 2
+            }
+        ];
+        
+        let currentQuestion = 0;
+        let score = 0;
+        
+        // Get DOM elements
+        const cont2 = document.getElementById('cont2');
+        const mcqPopup = document.getElementById('mcqPopup');
+        const mcqOverlay = document.getElementById('mcqOverlay');
+        const mcqQuestion = document.getElementById('mcqQuestion');
+        const mcqOptions = document.getElementById('mcqOptions');
+        const mcqFeedback = document.getElementById('mcqFeedback');
+        
+        // Show popup when "Quick Surprise" is clicked
+        cont2.addEventListener('click', function() {
+            showQuestion(currentQuestion);
+            mcqOverlay.style.display = 'block';
+            mcqPopup.style.display = 'block';
+        });
+        
+        // Function to display a question
+        function showQuestion(index) {
+            if (index >= mcqData.length) {
+                // Quiz completed
+                mcqQuestion.textContent = "Secret message unlocked!";
+                mcqOptions.textContent = "Unknowingly you have agreed to all the facts which you never accept in front of me.";
+                mcqFeedback.textContent = "I will frame these answers. Thank You!";
+                return;
+            }
+            
+            const question = mcqData[index];
+            mcqQuestion.textContent = question.question;
+            mcqOptions.innerHTML = "";
+            mcqFeedback.textContent = "";
+            
+            // Create option buttons
+            question.options.forEach((option, i) => {
+                const optionBtn = document.createElement('div');
+                optionBtn.className = 'mcq-option';
+                optionBtn.textContent = option;
+                optionBtn.addEventListener('click', function() {
+                    checkAnswer(i, question.correct);
+                });
+                mcqOptions.appendChild(optionBtn);
+            });
+        }
+        
+        // Function to check the answer
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                mcqFeedback.textContent = "Correct!";
+                mcqFeedback.className = "mcq-feedback correct";
+                score++;
+                
+                // Move to next question after delay
+                setTimeout(() => {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                }, 1000);
+            } else {
+                mcqFeedback.textContent = "Wrong, you have to select the correct option in order to proceed. Try again!";
+                mcqFeedback.className = "mcq-feedback wrong";
+            }
+        }
+        
+        // Close popup when clicking outside
+        mcqOverlay.addEventListener('click', function() {
+            mcqOverlay.style.display = 'none';
+            mcqPopup.style.display = 'none';
+            // Reset quiz if needed
+            currentQuestion = 0;
+            score = 0;
+        });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const audioButtons = document.querySelectorAll('.audio-btn');
+  let currentlyPlaying = null;
+
+  audioButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const audioId = this.getAttribute('data-audio');
+      const audio = document.getElementById(audioId);
+      const icon = this.querySelector('i');
+      
+      // If another audio is playing, pause it
+      if (currentlyPlaying && currentlyPlaying !== audio) {
+        currentlyPlaying.pause();
+        const prevButton = document.querySelector(`[data-audio="${currentlyPlaying.id}"]`);
+        prevButton.classList.remove('playing');
+        prevButton.querySelector('i').className = 'fas fa-play';
+      }
+      
+      if (audio.paused) {
+        audio.play();
+        this.classList.add('playing');
+        icon.className = 'fas fa-pause';
+        currentlyPlaying = audio;
+      } else {
+        audio.pause();
+        this.classList.remove('playing');
+        icon.className = 'fas fa-play';
+        currentlyPlaying = null;
+      }
+      
+      // When audio ends
+      audio.onended = function() {
+        button.classList.remove('playing');
+        icon.className = 'fas fa-play';
+        currentlyPlaying = null;
+      };
+    });
+  });
+});
+  </script>
+  
+</body>
+</html>

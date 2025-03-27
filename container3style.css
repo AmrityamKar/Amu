@@ -1,0 +1,105 @@
+#container-three{
+  margin-top: 2rem;
+  margin-left: 10vw;
+}
+ /* 
+  .banner3 {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background-image: url("http://i.imgur.com/0ggd0lT.jpg");
+    background-color: #98DFEA;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  }
+  
+  .inner-banner {
+    position: relative;
+    top: 40%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    height: 200px;
+  }
+  
+  .banner3 p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #25283D;
+  }
+  
+  button {
+    width: 200px;
+    height: 50px;
+    background-color: #07BEB8;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 5px;
+    border: none;
+    
+  }
+  
+  button:hover {
+    background-color: #98DFEA;
+    color: #07BEB8;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.25);
+  }
+*/
+
+  .card {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    background: mediumturquoise;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .card::before,
+  .card::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: lightblue;
+    transition: all 0.5s;
+  }
+  
+  .card::before {
+    top: 0;
+    right: 0;
+    border-radius: 0 15px 0 100%;
+  }
+  
+  .card::after {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 100%  0 15px;
+  }
+  
+  .card:hover::before,
+  .card:hover:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: all 0.5s;
+  }
+  
+  .card:hover:after {
+    content: "TRY NOW";
+  }
